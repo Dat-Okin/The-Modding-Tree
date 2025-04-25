@@ -24,5 +24,11 @@ addLayer("S", {
     hotkeys: [
         {key: "s", description: "S: Condense some mana into shards", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+    upgrades: {
+        11: {
+
+        },
+
+    },
     layerShown(){return true}
 })
