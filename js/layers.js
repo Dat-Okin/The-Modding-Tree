@@ -31,6 +31,13 @@ addLayer("s", {
             cost: new Decimal(5),
 
         },
+        12: {
+            title: "Boost Boost",
+            description: "Makes Shards more potent",
+            cost: new Decimal(20),
+
+
+        },
        
     },
     layerShown(){return true}
