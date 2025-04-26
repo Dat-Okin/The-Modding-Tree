@@ -1,7 +1,8 @@
 let modInfo = {
 	name: "The Mana Tree",
 	author: "Mako",
-	pointsName: "mana",
+	id: "Explosion",
+	pointsName: "Mana",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -12,12 +13,12 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0.1",
-	name: "Hello World.",
+	num: "0.0.0.1",
+	name: "technical Difficulties",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0.1</h3><br>
+	<h3>v0.0</h3><br>
 		- Added things.<br>
 		- Added stuff.`
 
@@ -42,10 +43,7 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
-
-	
-		return gain
-
+	return gain
 }
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
