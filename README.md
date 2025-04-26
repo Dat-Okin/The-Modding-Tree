@@ -1,6 +1,8 @@
-# The-Modding-Tree
+# The Manna Tree
+made with The-Modding-Tree
+(An incremental game engine based on The Prestige Tree. It still requires programming knowledge, but it's mostly pretty easy things and copy/pasting.)
 
-An incremental game engine based on The Prestige Tree. It still requires programming knowledge, but it's mostly pretty easy things and copy/pasting.
+and i have no idea what im doing
 
 [Look here for a tutorial on getting started with modding with TMT](docs/tutorials/getting-started.md)
 
