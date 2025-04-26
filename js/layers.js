@@ -32,14 +32,20 @@ addLayer("s", {
 
         11: {
             cost(x) { return new Decimal(1.5) },
+            effect(x) { return new Decimal(1) },
             title: "Mana Boost",
-            display() { return "Shards are boosting mana" },
+            display() {
+                return "Shards are boosting mana by x" + format(tmp[this.layer].buyables[this.id].effect) + ".\n\ Cost: " + format(tmp[this.layer].buyables[this.id].cost) + "Mana"
+            },
             canAfford() { return player[this.layer].points.gte(this.cost()) },
             buy() {
                 player[this.layer].points = player[this.layer].points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+                let growth = 1.12
             },
-
+           
         },
+
     },
+
 })
