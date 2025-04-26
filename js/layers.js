@@ -5,6 +5,21 @@ addLayer("s", {
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
+        buyables: {
+            11: {
+                cost(x) { return new Decimal(1).mul(x) },
+                display() { return "Blah" },
+                canAfford() { return player[this.layer].points.gte(this.cost()) },
+                buy() {
+                    player[this.layer].points = player[this.layer].points.sub(this.cost())
+                    setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+                },
+                etc
+            },
+            etc
+        }
+        
+        
     }},
     color: "#0F2CBD",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
