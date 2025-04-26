@@ -7,9 +7,6 @@ addLayer("s", {
         unlocked: true,
 		points: new Decimal(0),
         buyables: {},
-        thingy: "pointy",
-        otherThingy: 10,
-        drop: "drip",
         resetDescription: "Absorb ",
 
         
