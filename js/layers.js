@@ -6,6 +6,10 @@ addLayer("s", {
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
+        buyables: {},
+        thingy: "pointy",
+        otherThingy: 10,
+        drop: "drip",
         
     }},
     color: "#0F2CBD",
