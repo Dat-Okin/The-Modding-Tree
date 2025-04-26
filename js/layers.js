@@ -1,4 +1,4 @@
-addLayer("s", {
+addLayer("shards", {
     name: "Mana Shards", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "S", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
@@ -31,17 +31,20 @@ addLayer("s", {
 
 
         11: {
-            cost(x) { return new Decimal(1.5) },
-            effect(x) { return new Decimal(1) },
+            cost(x) { return new Decimal(1.5).pow(x || getBuyableAmount(this.layer, this.id)) },
+            effect(x) { return new Decimal(1).add(x || getBuyableAmount(this.layer, this.id)) },
             title: "Mana Boost",
             display() {
-                return "Shards are boosting mana by x" + format(tmp[this.layer].buyables[this.id].effect) + ".\n\ Cost: " + format(tmp[this.layer].buyables[this.id].cost) + "Mana"
+                return "Shards are boosting mana by x" + format(tmp[this.layer].buyables[this.id].effect) + ".\n\ Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Shards"
             },
             canAfford() { return player[this.layer].points.gte(this.cost()) },
             buy() {
                 player[this.layer].points = player[this.layer].points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
-                let growth = 1.12
+                let base = new Decimal(1)
+                let growth = 1.1
+                let max = Decimal.affordGeometricSeries(player[this.layer].points, base, growth, getBuyableAmount(this.layer, this.id))
+                let cost = Decimal.sumGeometricSeries(max, base, growth, getBuyableAmount(this.layer, this.id))
             },
            
         },
