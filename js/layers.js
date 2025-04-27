@@ -32,7 +32,7 @@ addLayer("shards", {
 
         11: {
             cost(x) { return new Decimal(1.5).pow(x || getBuyableAmount(this.layer, this.id)) },
-            effect(x) { return new Decimal(1).add(x || getBuyableAmount(this.layer, this.id)).mul(1.5) },
+            effect(x) { return new Decimal(1).add(x || getBuyableAmount(this.layer, this.id)) },
             title: "Mana Boost",
             display() {
                 return "Shards are boosting mana by x" + format(tmp[this.layer].buyables[this.id].effect) + ".\n\ Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Shards"
